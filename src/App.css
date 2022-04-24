@@ -1,0 +1,39 @@
+.title-survey{
+  font-size: 80px;
+  padding: 20px;
+  margin: 20px;
+  font-weight: bold;
+  background-color: bisque;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.container{
+  background-color: rgb(201, 243, 243);
+  padding: 150px;
+  height: 200vh;
+}
+
+.title-container{
+  flex:auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.survey-box{
+  padding: 50px;
+  background-color: bisque;
+  margin: 10px;
+  border-radius: 50px;
+}
+
+.image-container{
+  align-self: center;
+  border: 10px;
+  border-inline-color: aqua;
+}
+
+.image-logo{
+  width: 400px;
+  height: 200px;
+}
