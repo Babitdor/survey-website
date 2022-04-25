@@ -402,16 +402,18 @@ function App() {
   survey.onComplete.add(sendDataToServer);
 
   return (
-        <div className='bg-cyan-green flex flex-wrap justify-center'>
+        <div className='bg-cyan-green flex flex-wrap justify-center bg-cover h-max'>
             
             {/* <div className='w-full h-full'> */}
               {/* <img src={Bus} alt="logo-bus" className='w-full h-full align-middle'/> */}
             {/* </div> */}
-            <div className='md:container m-2'>
-                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3'>
+            <div className='md:container m-2 h-max'>
+                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3 h-max'>
                     <Survey model={survey}/>
                   </div>
             </div>
+
+            
         </div>
   );
 }
