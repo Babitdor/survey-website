@@ -4,12 +4,12 @@ import $ from 'jquery';
 import "survey-core/modern.min.css";
 import { StylesManager, Model } from "survey-core";
 import { Survey } from "survey-react-ui";
-// import Bus from '../src/assets/Bus.jpeg'
+import Bus from '../src/assets/Bus_edit.jpeg'
 StylesManager.applyTheme("modern");
 
 
 const surveyJson = {
-  "title": "Shuttle Bus System",
+  "title": "Shuttle Bus Survey",
   "pages": [
       {
           "name": "page1",
@@ -404,11 +404,11 @@ function App() {
   return (
         <div className='bg-cyan-green flex flex-wrap justify-center bg-cover h-max'>
             
-            {/* <div className='w-full h-full'> */}
-              {/* <img src={Bus} alt="logo-bus" className='w-full h-full align-middle'/> */}
-            {/* </div> */}
+            <div className='w-full h-3/6 flex flex-wrap justify-center'>
+               <img src={Bus} alt="logo-bus" className='p-5 h-fit flex flex-wrap justify-center'/>
+            </div> 
             <div className='md:container m-2 h-max'>
-                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3 h-max'>
+                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3 h-max my-2'>
                     <Survey model={survey}/>
                   </div>
             </div>
