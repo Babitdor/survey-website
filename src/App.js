@@ -4,63 +4,370 @@ import $ from 'jquery';
 import "survey-core/modern.min.css";
 import { StylesManager, Model } from "survey-core";
 import { Survey } from "survey-react-ui";
-import Bus from '../src/assets/Bus_1.png'
+// import Bus from '../src/assets/Bus.jpeg'
 StylesManager.applyTheme("modern");
 
 
 const surveyJson = {
-  name: "Basic Information",
-  questionTitleLocation: "hidden",
-  showQuestionNumbers: "off",
-  pages: [{
-    name: "PersonalDetails",
-    elements: [{
-      type: "text",
-      name: "FirstName",
-      title: "First name:",
-      isRequired: true,
-    }, {
-      type: "text",
-      name: "LastName",
-      title: "Last name:",
-      isRequired: true,
-    }, 
+  "title": "Shuttle Bus System",
+  "pages": [
+      {
+          "name": "page1",
+          "title": "Parent Information",
+          "elements": [
+                {
+                  "type": "panel",
+                  "name": "first_page_container_panel",
+                  "elements": [
+                      {
+                          "type": "text",
+                          "name": "ParentFirstName",
+                          "title": "First Name:",
+                          "hideNumber": true,
+                          "inputType": "text"
+                      },
+                      {
+                        "type": "text",
+                        "name": "ParentLastName",
+                        "title": "Last Name:",
+                        "hideNumber": true,
+                        "inputType": "text"
+                    }, 
+                    {
+                      "type": "radiogroup",
+                      "hideNumber": true,
+                      "name": "Parent_Gender",
+                      "title": "Sex",
+                      "choices": [
+                          {
+                              "value": "Male",
+                              "text": "Male"
+                          }, {
+                              "value": "Female",
+                              "text": "Female"
+                          }, 
+                      ],
+                      "colCount": 3
+                  },
+                  {
+                       "type": "text",
+                        "name": "PhoneNo",
+                         "hideNumber": true,
+                          "title": "Phone No",
+                            "inputType":"tel",
+                   }, {
+                         "type": "text",
+                         "name": "Email",
+                          "hideNumber": true,
+                           "title": "Email",
+                           "validators": [
+                            {
+                             "type": "email"
+                            }
+                           ]
+                   },
+                   {
+                     "type": "text",
+                      "hideNumber": true,
+                       "name": "Address",
+                      "title": "Address",
+                                
+                  }
+  
+                  ],
+                  "startWithNewLine": false
+              }
+          ],
+          "navigationTitle": "Parent Information",
+      }, 
+      
+// ********************************************************** 
+      
+      {
+          "name": "page2",
+          "title": "Children Information",
+          "elements": [
+            {
+              "type": "text",
+              "name": "Child-1_FullName",
+              "title": "Full Name:",
+              "hideNumber": true,
+              //"isRequired": true,
+              "inputType": "text"
+            },
+            {
+              "type": "text",
+              "name": "School_of_Child_1",
+              "title": "School:",
+              "hideNumber": true,
+             // "isRequired": true,
+              "inputType": "text"
+            },  
+            {
+              "type": "text",
+              "name": "Class_of_Child_1",
+              "title": "Class :",
+              //"isRequired": true,
+              "hideNumber": true,
+              "inputType": "text"
+            }, 
+      
+
     {
-      type: "text",
-      name: "Address",
-      title: "Address:",
-      isRequired: true,
+        "type": "boolean",
+        "name": "Do they have more children ?",
+        "title": "Do you have any more children ?",
+        "hideNumber": true,
+        //"isRequired": true,
+        "labelTrue": "Yes",
+        "labelFalse": "No"
     }, 
-    {
-      type: "text",
-      name: "PhoneNo",
-      inputType: "tel",
-      title: "Phone No:",
-      isRequired: true,
-    }, 
-    {
-      type: "panel",
-      name: "Contacts",
-      showQuestionNumbers: "off",
-      state: "collapsed",
-      title: "Contacts",
-      elements: [{
-        type: "text",
-        name: "Email",
-        inputType: "email",
-        title: "Email:",
-        validators: [
-          {
-              "type": "email"
-          }
-        ]
+              
+              
+              
+              {
+                  "type": "panel",
+                  "name": "children_information",
+                  "elements": [
+                    {
+                      "type": "text",
+                      "name": "Child-2_FullName",
+                      "title": "First Name:",
+                      //"isRequired": true,
+                      "hideNumber": true,
+                      "inputType": "text"
+                    },
+                    {
+                      "type": "text",
+                      "name": "School_of_Child_2",
+                      "title": "School:",
+                      "hideNumber": true,
+                      // "isRequired": true,
+                      "inputType": "text"
+                    }, 
+                    {
+                      "type": "text",
+                      "name": "Class_of_Child_2",
+                      "title": "Class :",
+                      // "isRequired": true,
+                      "hideNumber": true,
+                      "inputType": "text"
+                    },],
+
+
+                  "visible": false,
+                  "visibleIf": "{Do they have more children ?} = true",
+                  "title": "Children No.2",
+                  "showNumber": true,
+                  "showQuestionNumbers": "off"
+              }, 
+          ],
+          "navigationTitle": "Children",
+      },
+      
+      
+
+      {
+          "name": "page3",
+          "title": "Questions",
+          "elements": [
+              {
+                  "type": "panel",
+                  "name": "Questionaire",
+                  
+                  "elements": [
+                      {
+                          "type": "panel",
+                          "name": "Question_1",
+                          "elements": [
+                              {
+                                  "type": "checkbox",
+                                  "name": "Question_1",
+                                  "title": "What colour would be appropriate for the Vehicle ?",
+                                  "startWithNewLine": false,
+                                  "choices": [
+                                      {
+                                          "value": "Red",
+                                          "text": "Red",
+                                          "enableIf": "{Question_1} <> ['Red']"
+                                      }, {
+                                          "value": "Blue",
+                                          "text": "Blue",
+                                          "enableIf": "{Question_1} <> ['Blue']"
+                                      },{
+                                        "value": "Green",
+                                        "text": "Green",
+                                        "enableIf": "{Question_1} <> ['Green']"
+                                    },
+                                    {
+                                      "value": "Yellow",
+                                      "text": "Yellow",
+                                      "enableIf": "{Question_1} <> ['Yellow']"
+                                  },
+                                  ],
+                                  "colCount": 4
+                              }, {
+                                  "type": "radiogroup",
+                                  "name": "Question_2",
+                                  "title": "Would you like the vehicle of transport to be a Bus or Car ?",
+                                  "titleLocation": "default",
+                                  "choices": [
+                                      {
+                                          "value": "Bus",
+                                          "text": "Bus"
+                                      }, {
+                                          "value": "Car",
+                                          "text": "Car"
+                                      }, 
+                                  ],
+                                  "colCount": 3
+                              }
+                          ],
+                          
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_3",
+                          "title": "Do you want a real time location of the vehicle transporting your child ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_4",
+                          "title": "Would you agree if we implemented Pickup points based on your location ?",
+                          "description":"(By Pickup points we mean the location where you can drop off your child to be picked up from)",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_5",
+                          "title": "Would you like a Teacher to be present in the bus ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_6",
+                          "title": "Do you want to schedule the bus according to your specified time ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_7",
+                          "title": "Do you want to verify drivers before hand along with the school authority ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_8",
+                          "title": "Do you want the driver to be recruited by the school ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_9",
+                          "title": "Currently, we are working with one school, However, Would you be willing to use our system, if we integrated it with other schools ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }
+                  ],
+                  
+                  "startWithNewLine": false,
+                  "showNumber": false,
+                  "showQuestionNumbers": "off"
+              }
+          ],
+          "navigationTitle": "Questions",
       }, {
-        type: "text",
-        name: "GitHub",
-        title: "GitHub"
-      }]
-    }]
-  }]
+          
+          "navigationTitle": "Completion",
+          "navigationDescription": "Status of form"
+      }
+  ],
+  "showProgressBar": "top",
+  
 };
 
 
@@ -93,31 +400,15 @@ function App() {
   const survey = new Model(surveyJson);
   survey.focusFirstQuestionAutomatic = false;
   survey.onComplete.add(sendDataToServer);
-  
-  survey.onAfterRenderQuestionInput
-  .add(function (sender, opt) {
-      var el = opt.htmlElement;
-      var question = opt.question;
-      if (question.getType() === 'text') {
-          var label = document.createElement('label');
-          label
-              .classList
-              .add('bmd-label-floating');
-          label.innerHTML = question.locTitle.textOrHtml;
-          el
-              .parentNode
-              .insertBefore(label, el);
-      }
-  });
-  
 
   return (
-        <div className='md:mx-auto bg-cyan-green sm:h-full'>
-            <div className='w-full h-full'>
-              <img src={Bus} alt="logo-bus" className='mx-auto p-2 bg-cover'/>
-            </div>
-            <div className='md:container mx-auto p-5'>
-                  <div className='bg-card-grey p-2 rounded-2xl m-2 lg:p-10 shadow-2xl mx-auto'>
+        <div className='bg-cyan-green flex flex-wrap justify-center'>
+            
+            {/* <div className='w-full h-full'> */}
+              {/* <img src={Bus} alt="logo-bus" className='w-full h-full align-middle'/> */}
+            {/* </div> */}
+            <div className='md:container m-2'>
+                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3'>
                     <Survey model={survey}/>
                   </div>
             </div>
