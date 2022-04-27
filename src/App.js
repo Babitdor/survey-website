@@ -2,16 +2,18 @@ import './App.css';
 import React from 'react';
 import $ from 'jquery'; 
 import "survey-core/modern.min.css";
-import { StylesManager, Model } from "survey-core";
+import { Model,StylesManager} from "survey-core";
 import { Survey } from "survey-react-ui";
-import Bus from '../src/assets/Bus_edit.jpeg'
+import Bus from '../src/assets/Bus.png'
+
+
 StylesManager.applyTheme("modern");
 
-
 const surveyJson = {
-  "title": "Shuttle Bus Survey",
-  "pages": [
+    "showProgressBar": "bottom",
+    "pages": [
       {
+        
           "name": "page1",
           "title": "Parent Information",
           "elements": [
@@ -354,7 +356,7 @@ const surveyJson = {
                       }
                   ],
                   
-                  "startWithNewLine": false,
+                  "startWithNewLine": true,
                   "showNumber": false,
                   "showQuestionNumbers": "off"
               }
@@ -365,10 +367,11 @@ const surveyJson = {
           "navigationTitle": "Completion",
           "navigationDescription": "Status of form"
       }
+      
   ],
-  "showProgressBar": "top",
   
 };
+
 
 
 
@@ -397,24 +400,26 @@ function sendDataToServer(survey, options) {
 }
 
 function App() {
+
+    
   const survey = new Model(surveyJson);
-  survey.focusFirstQuestionAutomatic = false;
+  survey.focusFirstQuestionAutomatic = true;
   survey.onComplete.add(sendDataToServer);
+  
 
   return (
-        <div className='bg-cyan-green flex flex-wrap justify-center bg-cover h-max'>
-            
-            <div className='w-full h-3/6 flex flex-wrap justify-center'>
-               <img src={Bus} alt="logo-bus" className='p-5 h-fit flex flex-wrap justify-center'/>
+        <div className='container'>
+            <div className='img-container'>
+               <img src={Bus} alt="logo-bus" className='img'/>
             </div> 
-            <div className='md:container m-2 h-max'>
-                  <div className='bg-card-grey rounded-3xl shadow-2xl p-3 h-max my-2'>
-                    <Survey model={survey}/>
-                  </div>
+            
+            <div className='survey-box'>  
+                 <Survey model={survey}/>  
             </div>
 
+            </div>
             
-        </div>
+      
   );
 }
 

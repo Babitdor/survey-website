@@ -1,39 +1,64 @@
-/* .title-survey{
-  font-size: 80px;
-  padding: 20px;
-  margin: 20px;
-  font-weight: bold;
-  background-color: bisque;
-  border-radius: 50px;
-  text-align: center;
-}
-
 .container{
-  background-color: rgb(201, 243, 243);
-  padding: 150px;
-  height: 200vh;
-}
-
-.title-container{
-  flex:auto;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.survey-box{
-  padding: 50px;
-  background-color: bisque;
-  margin: 10px;
-  border-radius: 50px;
-}
-
-.image-container{
+  height:auto;
+  width: auto;
   align-self: center;
-  border: 10px;
-  border-inline-color: aqua;
+  background-attachment: fixed;
+  margin: auto;
 }
 
-.image-logo{
-  width: 400px;
-  height: 200px;
+.survey-box{
+  justify-content: center;
+  background-color: rgb(244, 244, 244);
+  padding: 2px;
+  width: auto;
+  height: auto;
+  box-shadow: 10px;
+  text-shadow: 10px;
+  margin: auto;
+}
+
+.img{
+  width: 40%;
+  height: 40%;
+  margin: auto;
+  align-self: center;
+}
+.img-container{
+  height:auto;
+  width: auto;
+  align-self: center;
+  margin: auto;
+}
+
+@media only screen and (max-width: 280px) {
+  .survey-box{
+    width: fit-content;
+  }
+  .img{
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .survey-box{
+    width: fit-content;
+  }
+  .img{
+    width: 80%;
+    height: 80%;
+  }
+}
+
+
+/* @media only screen and (max-width: 912px) {
+  .img{
+    width: 60%;
+    height: 60%;
+  }
+  .survey-box{
+    width:auto;
+  }
 } */
+
+
