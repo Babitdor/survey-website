@@ -10,7 +10,7 @@ import Bus from '../src/assets/Bus.png'
 StylesManager.applyTheme("modern");
 
 const surveyJson = {
-    "showProgressBar": "bottom",
+    "showProgressBar": "top",
     "pages": [
       {
         
