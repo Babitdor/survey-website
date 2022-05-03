@@ -1,0 +1,553 @@
+{
+    "showProgressBar": "top",
+    "title":"Shuttle Bus Surveys",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{SameSchool(Child_2)?} = 'True'",
+            "setToName": "School",
+            "setValue": "St.Edmund's School"
+        },
+        {
+            "type": "setvalue",
+            "expression": "{SameSchool(Child_2)?} = 'False'",
+            "setToName": "School",
+            "setValue": ""
+        }
+    ],
+    "pages": [
+      {
+        
+          "name": "page1",
+          "title": "Children Information",
+          "elements": [
+                {
+                  "type": "panel",
+                  "name": "first_page_container_panel",
+                  "elements": [
+                      {
+                          "type": "text",
+                          "name": "ChildFirstName",
+                          "title": "First Name:",
+                          "hideNumber": true,
+                          "inputType": "text"
+                      },
+                      {
+                        "type": "text",
+                        "name": "ChildLastName",
+                        "title": "Last Name:",
+                        "hideNumber": true,
+                        "inputType": "text"
+                    }, 
+                    
+                  {
+                         "type": "text",
+                         "name": "Class",
+                          "hideNumber": true,
+                           "title": "Class",
+                           "inputType": "text"
+                   },
+                   {
+                     "type": "text",
+                      "hideNumber": true,
+                       "name": "Location",
+                      "title": "Location"
+                                
+                  }
+  
+                  ],
+                  "startWithNewLine": false
+              }
+          ],
+          "navigationTitle": "Parent Information"
+      }, 
+      
+
+      
+     
+      
+      
+
+      {
+          "name": "page2",
+          "title": "Questions",
+          "elements": [
+              {
+                  "type": "panel",
+                  "name": "Questionaire",
+                  
+                  "elements": [
+                      {
+                          "type": "panel",
+                          "name": "Question_1",
+                          "elements": [
+                              {
+                                  "type": "checkbox",
+                                  "name": "Question_1",
+                                  "title": "What colour would be appropriate for the Vehicle ?",
+                                  "startWithNewLine": false,
+                                  "choices": [
+                                      {
+                                          "value": "Red",
+                                          "text": "Red",
+                                          "enableIf": "{Question_1} <> ['Red']"
+                                      }, {
+                                          "value": "Blue",
+                                          "text": "Blue",
+                                          "enableIf": "{Question_1} <> ['Blue']"
+                                      },{
+                                        "value": "Green",
+                                        "text": "Green",
+                                        "enableIf": "{Question_1} <> ['Green']"
+                                    },
+                                    {
+                                      "value": "Yellow",
+                                      "text": "Yellow",
+                                      "enableIf": "{Question_1} <> ['Yellow']"
+                                  }
+                                  ],
+                                  "colCount": 4
+                              }, {
+                                  "type": "radiogroup",
+                                  "name": "Question_2",
+                                  "title": "Would you like the vehicle of transport to be a Bus or Car ?",
+                                  "titleLocation": "default",
+                                  "choices": [
+                                      {
+                                          "value": "Bus",
+                                          "text": "Bus"
+                                      }, {
+                                          "value": "Car",
+                                          "text": "Car"
+                                      }
+                                  ],
+                                  "colCount": 3
+                              }
+                          ]
+                          
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_3",
+                          "title": "Do you want a real time location of the vehicle transporting your child ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_4",
+                          "title": "Would you agree if we implemented Pickup points based on your location ?",
+                          "description":"(By Pickup points we mean the location where you can drop off your child to be picked up from)",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_5",
+                          "title": "Would you like a Teacher to be present in the bus ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_6",
+                          "title": "Do you want to schedule the bus according to your specified time ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_7",
+                          "title": "Do you want to verify drivers before hand along with the school authority ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_8",
+                          "title": "Do you want the driver to be recruited by the school ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }, {
+                          "type": "radiogroup",
+                          "name": "Question_9",
+                          "title": "Currently, we are working with one school, However, Would you be willing to use our system, if we integrated it with other schools ?",
+                          "titleLocation": "default",
+                          "choices": [
+                              {
+                                  "value": "Yes",
+                                  "text": "Yes"
+                              }, {
+                                  "value": "No",
+                                  "text": "No"
+                              }, {
+                                  "value": "Maybe",
+                                  "text": "Maybe"
+                              }
+                          ],
+                          "colCount": 3
+                      }
+                  ],
+                  
+                  "startWithNewLine": true,
+                  "showNumber": false,
+                  "showQuestionNumbers": "off"
+              }
+              
+          ],
+          "navigationTitle": "Questions"
+      }, 
+      
+      
+      
+      
+      {
+        "name": "page3",
+        "hideNumber": true,
+        "elements": [
+         {
+          "type": "radiogroup",
+          "name": "haveKids",
+          "hideNumber": true,
+          "title": "Do you have anymore kids?",
+          "isRequired": true,
+          "choices": [
+           "Yes",
+           "No"
+          ],
+          "colCount": 0
+         },
+         {
+          "type": "dropdown",
+          "name": "kids",
+          "hideNumber": true,
+          "visibleIf": "{haveKids}='Yes'",
+          "title": "How many kids do you have",
+          "isRequired": true,
+          "choices": [
+           1,
+           2,
+           3,
+           4,
+           5,
+           6,
+           7,
+           8,
+           9,
+           10
+          ]
+         },
+         {
+          "type": "multipletext",
+          "name": "Child 1",
+          "hideNumber": true,
+          "visibleIf": "{kids} >= 1",
+          "title": "Kid 1",
+          "isRequired": true,
+          "items": [
+           {
+            "name": "FullName",
+            "title": "Name"
+           },
+           {
+            "name": "School",
+            "title": "School"
+           },
+           {
+            "name": "Class",
+            "title": "Class"
+           }
+          ]
+         },
+         {
+          "type": "multipletext",
+          "name": "Child 2",
+          "hideNumber": true,
+          "visibleIf": "{kids} >= 2",
+          "startWithNewLine": false,
+          "title": "Kid 2",
+          "isRequired": true,
+          "items": [
+           {
+            "name": "FullName",
+            "title": "Name"
+           },
+           {
+            "name": "School",
+            "title": "School"
+           },
+           {
+            "name": "Class",
+            "title": "Class"
+           }
+          ]
+         },
+         {
+          "type": "multipletext",
+          "name": "Child 3",
+          "hideNumber": true,
+          "visibleIf": "{kids} >= 3",
+          "title": "Kid 3",
+          "isRequired": true,
+          "items": [
+           {
+            "name": "FullName",
+            "title": "Name"
+           },
+           {
+            "name": "School",
+            "title": "School"
+           },
+           {
+            "name": "Class",
+            "title": "Class"
+           }
+          ]
+         },
+         {
+          "type": "multipletext",
+          "name": "Child 4",
+          "visible": false,
+          "hideNumber": true,
+          "visibleIf": "{kids} >= 4",
+          "startWithNewLine": false,
+          "title": "Kid 4",
+          "isRequired": true,
+          "items": [
+           {
+            "name": "FullName",
+            "title": "Name"
+           },
+           {
+            "name": "School",
+            "title": "School"
+           },
+           {
+            "name": "Class",
+            "title": "Class"
+           }
+          ]
+         },
+         {
+          "type": "multipletext",
+          "name": "Child 5",
+          "visible": false,
+          "hideNumber": true,
+          "startWithNewLine": false,
+          "visibleIf": "{kids} >= 5",
+          "title": "Kid 5",
+          "isRequired": true,
+          "items": [
+           {
+            "name": "FullName",
+            "title": "Name"
+           },
+           {
+            "name": "School",
+            "title": "School"
+           },
+           {
+            "name": "Class",
+            "title": "Class"
+           }
+          ]
+         },
+         {
+            "type": "multipletext",
+            "name": "Child 6",
+            "visible": false,
+            "hideNumber": true,
+            "startWithNewLine": false,
+            "visibleIf": "{kids} >= 6",
+            "title": "Kid 6",
+            "isRequired": true,
+            "items": [
+             {
+              "name": "FullName",
+              "title": "Name"
+             },
+             {
+              "name": "School",
+              "title": "School"
+             },
+             {
+              "name": "Class",
+              "title": "Class"
+             }
+            ]
+           },
+           {
+            "type": "multipletext",
+            "name": "Child 7",
+            "visible": false,
+            "hideNumber": true,
+            "startWithNewLine": false,
+            "visibleIf": "{kids} >= 7",
+            "title": "Kid 7",
+            "isRequired": true,
+            "items": [
+             {
+              "name": "FullName",
+              "title": "Name"
+             },
+             {
+              "name": "School",
+              "title": "School"
+             },
+             {
+              "name": "Class",
+              "title": "Class"
+             }
+            ]
+           },
+           {
+            "type": "multipletext",
+            "name": "Child 8",
+            "visible": false,
+            "hideNumber": true,
+            "startWithNewLine": false,
+            "visibleIf": "{kids} >= 8",
+            "title": "Kid 8",
+            "isRequired": true,
+            "items": [
+             {
+              "name": "FullName",
+              "title": "Name"
+             },
+             {
+              "name": "School",
+              "title": "School"
+             },
+             {
+              "name": "Class",
+              "title": "Class"
+             }
+            ]
+           },
+           {
+            "type": "multipletext",
+            "name": "Child 9",
+            "visible": false,
+            "hideNumber": true,
+            "startWithNewLine": false,
+            "visibleIf": "{kids} >= 9",
+            "title": "Kid 9",
+            "isRequired": true,
+            "items": [
+             {
+              "name": "FullName",
+              "title": "Name"
+             },
+             {
+              "name": "School",
+              "title": "School"
+             },
+             {
+              "name": "Class",
+              "title": "Class"
+             }
+            ]
+           },
+           {
+            "type": "multipletext",
+            "name": "Child 10",
+            "visible": false,
+            "hideNumber": true,
+            "startWithNewLine": false,
+            "visibleIf": "{kids} >= 10",
+            "title": "Kid 10",
+            "isRequired": true,
+            "items": [
+             {
+              "name": "FullName",
+              "title": "Name"
+             },
+             {
+              "name": "School",
+              "title": "School"
+             },
+             {
+              "name": "Class",
+              "title": "Class"
+             }
+            ]
+           }
+        ]
+       },
+      
+
+      {
+          
+          "navigationTitle": "Completion",
+          "navigationDescription": "Status of form"
+      }
+      
+  ]
+  
+}
