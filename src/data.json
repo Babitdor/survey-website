@@ -27,19 +27,11 @@
                   "elements": [
                       {
                           "type": "text",
-                          "name": "ChildFirstName",
+                          "name": "ChildFullName",
                           "title": "First Name:",
                           "hideNumber": true,
                           "inputType": "text"
                       },
-                      {
-                        "type": "text",
-                        "name": "ChildLastName",
-                        "title": "Last Name:",
-                        "hideNumber": true,
-                        "inputType": "text"
-                    }, 
-                    
                   {
                          "type": "text",
                          "name": "Class",
